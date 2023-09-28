@@ -1,0 +1,54 @@
+{
+  "name": "make-it-app/laravel-currency-extractor",
+  "description": "A currency extractor for Laravel",
+  "keywords": [
+    "laravel",
+    "currency"
+  ],
+  "homepage": "https://github.com/make-it-app/laravel-currency-extractor",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stanislav Kabin",
+      "email": "ioffline@make-it.app"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/make-it-app/laravel-currency-extractor/issues",
+    "source": "https://github.com/make-it-app/laravel-currency-extractor"
+  },
+  "require": {
+    "php": "^8.1|^8.2|^8.3",
+    "laravel/framework": "^10.10",
+    "graham-campbell/guzzle-factory": "^3.0|^4.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MakeIT\\LaravelCurrencyExtractor\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {}
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.x-dev"
+    },
+    "laravel": {
+      "providers": [
+        "MakeIT\\LaravelCurrencyExtractor\\CurrencyExtractorServiceProvider"
+      ],
+      "aliases": {
+        "CurrencyExtractor": "MakeIT\\LaravelCurrencyExtractor\\Facades\\CurrencyExtractorFacade"
+      }
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
