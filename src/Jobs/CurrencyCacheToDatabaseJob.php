@@ -29,7 +29,7 @@ class CurrencyCacheToDatabaseJob
     {
         // get cache data and flush them
         $Cached = Cache::pull('currencies');
-        if (! is_null($Cached)) {
+        if (!is_null($Cached)) {
             $codes = array_keys($Cached);
             $Currencies = Currency::whereIn('code', $codes)->get();
             if (count($Currencies)) {
@@ -49,7 +49,7 @@ class CurrencyCacheToDatabaseJob
     protected function updateCurrency(Collection $Currencies, string $code, float $rate): void
     {
         $Currency = $Currencies->where('code', $code)->first();
-        if (! is_null($Currency)) {
+        if (!is_null($Currency)) {
             $Currency->base = config('currency-extractor.base');
             $Currency->rate = $rate;
             $Currency->save();

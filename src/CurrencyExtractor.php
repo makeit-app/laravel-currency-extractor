@@ -34,7 +34,7 @@ class CurrencyExtractor implements CurrencyExtractorInterface
 
     public function fetchAndCache(string $key = 'currencies'): array
     {
-        if (! Cache::has($key)) {
+        if (!Cache::has($key)) {
             // Extractibg the content from a provider
             $content = $this->currencyFactory->create($this->provider->fetch());
             // converting to array
@@ -44,7 +44,7 @@ class CurrencyExtractor implements CurrencyExtractorInterface
             // extracting data as valid array
             $this->rates = $DTO->getRates();
             // if successfull extraction
-            if (! empty($this->rates) && $this->rates[0] instanceof Carbon && ! empty($this->rates[1])) {
+            if (!empty($this->rates) && $this->rates[0] instanceof Carbon && !empty($this->rates[1])) {
                 // cacheing them
                 Cache::put($key, $this->rates[1], $this->rates[0]->addHours(config('currency-extractor.cache_time')));
             }

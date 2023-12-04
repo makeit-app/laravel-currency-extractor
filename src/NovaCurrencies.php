@@ -94,7 +94,7 @@ class NovaCurrencies extends Resource
             Number::make(__('Rate'), 'rate')->step(0.000001),
             Number::make(__('Sort Order'), Sorter::FIELD)->min(0)->step(1)->hideFromIndex(),
             Text::make(__('Convertion'), function () {
-                $cnv = ! empty($this->rate) ? bcdiv(1 / $this->rate, 1, 2) : 0;
+                $cnv = !empty($this->rate) ? bcdiv(1 / $this->rate, 1, 2) : 0;
 
                 return '<div>1 <strong>'.$this->code.'</strong> == '.$cnv.' <strong>'.$this->base.'</strong></div>';
             })->asHtml()->exceptOnForms(),
